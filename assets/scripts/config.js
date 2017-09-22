@@ -2,7 +2,8 @@
 
 const config = {
   apiOrigins: {
-    production: 'https://ga-wdi-boston.herokuapp.com'
+    production: 'https://pick-a-winner-nfl.herokuapp.com/',
+    development: 'http://localhost:7165'
   }
 }
 
