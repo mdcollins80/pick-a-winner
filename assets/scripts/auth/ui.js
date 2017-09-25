@@ -13,23 +13,14 @@ const onSignUpFailure = function () {
   $('#message').show().text('There was a problem with your sign up.').fadeOut(5000)
 }
 
-// const onSignInSuccess = function (data) {
-//   store.user = data.user
-//   $('#message').show().text('Nice sign-in bro!').fadeOut(5000)
-//   $('main').removeClass('hidden')
-//   $('header').removeClass('hidden')
-//   $('nav').removeClass('hidden')
-//   $('#landing').addClass('hidden')
-//   $('.sign-in-input').val('')
-//   $('#0').text('t')
-//   $('#1').text('i')
-//   $('#2').text('c')
-//   $('#3').text('t')
-//   $('#4').text('a')
-//   $('#5').text('c')
-//   $('#6').text('b')
-//   $('#7').text('r')
-//   $('#8').text('o')
+const onSignInSuccess = function (data) {
+  store.user = data.user
+  $('#message').show().text('Successful Sign-In!').fadeOut(5000)
+  console.log(data)
+  $('#landing').addClass('hidden')
+  $('#accordion').removeClass('hidden')
+  $('.sign-in-input').val('')
+}
 //
 //   // show all games played statistics
 //   gameApi.getGames()
@@ -41,9 +32,9 @@ const onSignUpFailure = function () {
 //     .catch(gameUi.onGetFinishedGamesFailure)
 // }
 //
-// const onSignInFailure = function () {
-//   $('#message').show().text('Got problems signing in bro!').fadeOut(5000)
-// }
+const onSignInFailure = function () {
+  $('#message').show().text('There was a problem with your sign in.  Try again?').fadeOut(5000)
+}
 //
 // const onChangePasswordSuccess = function () {
 //   $('#user-change-pw').addClass('hidden')
@@ -72,9 +63,9 @@ const onSignUpFailure = function () {
 // }
 module.exports = {
   onSignUpSuccess,
-  onSignUpFailure // ,
-  // onSignInSuccess,
-  // onSignInFailure,
+  onSignUpFailure,
+  onSignInSuccess,
+  onSignInFailure // ,
   // onChangePasswordSuccess,
   // onChangePasswordFailure,
   // onSignOutSuccess,

@@ -26,6 +26,14 @@ const onSignUp = function (event) {
   }
 }
 
+const onSignIn = function (event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  userApi.signIn(data)
+    .then(userUi.onSignInSuccess)
+    .catch(userUi.onSignInFailure)
+}
+
 // const onSignIn = function (event) {
 //   event.preventDefault()
 //   const data = getFormFields(this)
@@ -34,19 +42,21 @@ const onSignUp = function (event) {
 //     .catch(userUi.onSignInFailure)
 // }
 //
-// const onChangePassword = function (event) {
-//   event.preventDefault()
-//   const data = getFormFields(this)
-//   const passwords = data.passwords
-//
-//   if (passwords.new === passwords.newConfirm) {
-//     userApi.changePassword(data)
-//       .then(userUi.onChangePasswordSuccess)
-//       .catch(userUi.onChangePasswordFailure)
-//   } else {
-//     $('#message').show().text('Passwords don\'t match bro!').fadeOut(5000)
-//   }
-// }
+const onChangePassword = function (event) {
+  event.preventDefault()
+  console.log(event)
+  const data = getFormFields(this)
+  console.log(data)
+  const passwords = data.passwords
+
+  if (passwords.new === passwords.confirm) {
+    userApi.changePassword(data)
+      .then(userUi.onChangePasswordSuccess)
+      .catch(userUi.onChangePasswordFailure)
+  } else {
+    $('#message').show().text('Passwords don\'t match!').fadeOut(5000)
+  }
+}
 //
 // const onSignOut = function (event) {
 //   event.preventDefault()
@@ -56,8 +66,8 @@ const onSignUp = function (event) {
 // }
 
 module.exports = {
-  onSignUp// ,
-  // onSignIn,
-  // onChangePassword,
+  onSignUp,
+  onSignIn,
+  onChangePassword // ,
   // onSignOut
 }

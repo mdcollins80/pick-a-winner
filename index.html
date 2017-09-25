@@ -5,6 +5,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
       <!-- Do not add `script` tags-->
@@ -12,9 +13,63 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <h1>Football Pick-a-Winner</h1>
+      <!-- NAVIGATION BAR SECTION -->
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+          <a class="navbar-brand js-scroll-trigger" href="#page-top">Pick A Winner</a>
+          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fa fa-bars"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" data-toggle="modal" data-target="#pwModal">Manage Password</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#portfolio">Change Team Name</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#skills">Sign Out</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 
-      <p>You'll pick all the winners for each game on this webpage!</p>
+<!-- CHANGE PASSWORD MODAL -->
+<div class="modal fade" id="pwModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">Change Password</h4>
+      </div>
+
+      <!--INPUT BOXES -->
+      <form class="user-change-password">
+        <div class="modal-body">
+          <div class="input-group">
+            <input type="text" class="form-control old-pw" placeholder="Old Password" aria-describedby="basic-addon1" name="passwords[old]">
+          </div>
+          <br>
+          <div class="input-group">
+            <input type="text" class="form-control new-pw" placeholder="New Password" aria-describedby="basic-addon1" name="passwords[new]">
+          </div>
+          <br>
+          <div class="input-group">
+            <input type="text" class="form-control new-pw-confirm" placeholder="Confirm Password" aria-describedby="basic-addon1" name="passwords[confirm]">
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button id="change-pw-button" type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 
 <!-- AUTH SECTION -->
       <!-- This is the message bar -->
@@ -29,7 +84,7 @@
         <div class="landing box" id="sign-up-box">
           <form class="credentials" id="user-sign-up">
               <input class="sign-up-input" type="text" name="credentials[email]" id="user-email-sign-up" placeholder="Email">
-              <input class="sign-up-input" type="text" name="credentials[team_name]" id="user-team_name-sign-up" placeholder="Bro England Brotriots">
+              <input class="sign-up-input" type="text" name="credentials[team_name]" id="user-team_name-sign-up" placeholder="Your Team Name">
               <input class="sign-up-input" type="password" name="credentials[password]" id="user-password-sign-up" placeholder="Password">
               <input class="sign-up-input" type="password" name="credentials[password_confirmation]" id="user-password-conf-sign-up" placeholder="Password Confirm">
               <button type="submit" class="btn btn-default">Sign Up</button>
@@ -42,6 +97,57 @@
               <input class="sign-in-input" type="password" name="credentials[password]" id="user-password-sign-in" placeholder="Password">
               <button type="submit" class="btn btn-default">Sign In</button>
           </form>
+        </div>
+      </div>
+
+<!-- ACCORDION SECTION FOR SECTIONS -->
+      <div class="hidden" id="accordion" role="tablist">
+        <!-- The User's Picks section.  Picks will be made, updated, deleted here. -->
+        <div class="card">
+          <div class="card-header" role="tab" id="headingOne">
+            <h5 class="mb-0">
+              <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                YOUR PICKS
+              </a>
+            </h5>
+          </div>
+          <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+              This will house the users' picks.
+            </div>
+          </div>
+        </div>
+
+        <!-- The other users' picks section.  Picks will only be shown here, and only after games have commenced for the week. -->
+        <div class="card">
+          <div class="card-header" role="tab" id="headingTwo">
+            <h5 class="mb-0">
+              <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                THE LEAGUE'S PICKS
+              </a>
+            </h5>
+          </div>
+          <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="card-body">
+              This will house other's picks.
+            </div>
+          </div>
+        </div>
+
+        <!-- The other users' picks section.  Picks will only be shown here, and only after games have commenced for the week. -->
+        <div class="card">
+          <div class="card-header" role="tab" id="headingThree">
+            <h5 class="mb-0">
+              <a class="collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                STANDINGS
+              </a>
+            </h5>
+          </div>
+          <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
+            <div class="card-body">
+              This will house the Standings
+            </div>
+          </div>
         </div>
       </div>
     </body>
