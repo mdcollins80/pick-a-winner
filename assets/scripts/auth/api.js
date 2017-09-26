@@ -20,8 +20,6 @@ const signIn = function (data) {
 }
 
 const changePassword = function (data) {
-  console.log('data to be passed to changePW endpoint')
-  console.log(data)
   return $.ajax({
     url: config.apiOrigin + '/change-password/' + store.user.id,
     method: 'PATCH',

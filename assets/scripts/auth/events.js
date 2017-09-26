@@ -3,6 +3,8 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const userApi = require('./api')
 const userUi = require('./ui')
+// const gameApi = require('../games/api')
+// const gameUi = require('../games/ui')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -57,17 +59,17 @@ const onChangePassword = function (event) {
     $('#message').show().text('Passwords don\'t match!').fadeOut(5000)
   }
 }
-//
-// const onSignOut = function (event) {
-//   event.preventDefault()
-//   userApi.signOut()
-//     .then(userUi.onSignOutSuccess)
-//     .catch(userUi.onSignOutFailure)
-// }
+
+const onSignOut = function (event) {
+  event.preventDefault()
+  userApi.signOut()
+    .then(userUi.onSignOutSuccess)
+    .catch(userUi.onSignOutFailure)
+}
 
 module.exports = {
   onSignUp,
   onSignIn,
-  onChangePassword // ,
-  // onSignOut
+  onChangePassword,
+  onSignOut
 }

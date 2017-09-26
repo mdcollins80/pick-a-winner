@@ -1,0 +1,8 @@
+{{#each games as |game|}}
+
+  <ul data-id="{{game.id}}">
+    <li>Away Team ID: {{game.away_team_id}} vs. Home Team ID: {{game.home_team_id}}</li>
+    <li><button class="btn btn-primary away_team">Select Away</button></li>
+  </ul>
+
+{{/each}}
