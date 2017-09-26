@@ -1,0 +1,18 @@
+<tbody>
+  <tr>
+    <th>Week</th>
+    <th>Kickoff</th>
+    <th>Away Team</th>
+    <th>Home Team</th>
+    <th>Winning Team</th>
+  </tr>
+  {{#each games as |game|}}
+    <tr>
+      <td>{{game.week_num}}</td>
+      <td>{{game.time}}</td>
+      <td><button data-id={{game.away_team_id}} class="btn btn-default away-team">{{game.away_team_id}}</button></td>
+      <td><button data-id={{game.home_team_id}}class="btn btn-default home-team">{{game.home_team_id}}</button></td>
+      <td>{{game.winning_team_id}}</td>
+    </tr>
+  {{/each}}
+</tbody>
