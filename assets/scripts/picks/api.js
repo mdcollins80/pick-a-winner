@@ -33,10 +33,20 @@ const createPick = function (data) {
 }
 
 const updatePick = function (data) {
-  console.log(data)
   return $.ajax({
     url: config.apiOrigin + '/picks/' + data.pick.id,
     method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
+const deletePick = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/picks/' + data.pick.id,
+    method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
@@ -48,5 +58,6 @@ module.exports = {
   getPicks,
   getPick,
   createPick,
-  updatePick
+  updatePick,
+  deletePick
 }

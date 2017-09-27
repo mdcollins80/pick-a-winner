@@ -4,6 +4,7 @@
 const showPicksTemplate = require('../templates/pick-listing.handlebars')
 
 const onGetPicksSuccess = function (data) {
+  console.log(data)
   const sorted = {
     picks: data.picks.sort(function (a, b) {
       return a.game_id - b.game_id
@@ -35,13 +36,23 @@ const onUpdatePickFailure = function () {
   $('#message').show().text('Update didn\'t to through!').fadeOut(5000)
 }
 
+const onDeletePickSuccess = function () {
+  $('#message').show().text('Delete success!').fadeOut(5000)
+}
+
+const onDeletePickFailure = function () {
+  $('#message').show().text('Delete failed!').fadeOut(5000)
+}
+
 module.exports = {
   onGetPicksSuccess,
   onGetPicksFailure,
   onCreatePickSuccess,
   onCreatePickFailure,
   onUpdatePickSuccess,
-  onUpdatePickFailure
+  onUpdatePickFailure,
+  onDeletePickSuccess,
+  onDeletePickFailure
 }
 
 // {"picks":[

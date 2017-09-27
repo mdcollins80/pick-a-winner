@@ -24,19 +24,38 @@ const onGetPicks = function (event) {
     .catch(pickUi.onGetPicksFailure)
 }
 
-const onUpdatePick = function (event) {
+const onUpdateOrDeletePick = function (event) {
   event.preventDefault()
   if (event.target && event.target.matches('form.user-update-pick')) {
-    const data = getFormFields(event.target)
-
-    pickApi.updatePick(data)
-      .then(pickUi.onUpdatePickSuccess)
-      .catch(pickUi.onUpdatePickFailure)
+    onUpdatePick(event)
+  } else if (event.target && event.target.matches('form.user-delete-pick')) {
+    onDeletePick(event)
   }
+}
+
+const onUpdatePick = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+
+  pickApi.updatePick(data)
+    .then(pickUi.onUpdatePickSuccess)
+    .catch(pickUi.onUpdatePickFailure)
+}
+
+const onDeletePick = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  console.log(data)
+
+  pickApi.deletePick(data)
+    .then(pickUi.onDeletePickSuccess)
+    .catch(pickUi.onDeletePickFailure)
 }
 
 module.exports = {
   onCreatePick,
   onGetPicks,
-  onUpdatePick
+  onUpdateOrDeletePick,
+  onUpdatePick,
+  onDeletePick
 }
