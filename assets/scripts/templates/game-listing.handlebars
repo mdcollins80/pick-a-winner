@@ -1,18 +1,24 @@
 <tbody>
   <tr>
+    <th>GameID</th>
     <th>Week</th>
-    <th>Kickoff</th>
     <th>Away Team</th>
     <th>Home Team</th>
-    <th>Winning Team</th>
+    <th>Predicted Winner</th>
   </tr>
   {{#each games as |game|}}
     <tr>
+      <td>{{game.id}}</td>
       <td>{{game.week_num}}</td>
-      <td>{{game.time}}</td>
-      <td><button data-id={{game.away_team_id}} class="btn btn-default away-team">{{game.away_team_id}}</button></td>
-      <td><button data-id={{game.home_team_id}}class="btn btn-default home-team">{{game.home_team_id}}</button></td>
-      <td>{{game.winning_team_id}}</td>
+      <td><button data-id={{game.away_team}} class="btn btn-default away-team">{{game.away_team}}</button></td>
+      <td><button data-id={{game.home_team}} class="btn btn-default home-team">{{game.home_team}}</button></td>
+      <td >
+        <form class="pick">
+          <input type="text" placeholder="{{game.home_team}}" name="pick[winning_team]">
+          <input type="text" name="pick[game_id]" value="{{game.id}}">
+          <button type="submit" class="btn btn-default create-pick-btn">Create Pick</button>
+        </form>
+      </td>
     </tr>
   {{/each}}
 </tbody>

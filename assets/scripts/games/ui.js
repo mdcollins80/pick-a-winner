@@ -9,7 +9,7 @@ const onGetGamesSuccess = function (data) {
       return a.id - b.id
     })
   }
-  console.log(sorted)
+  // HANDLEBARS for dynamically loading the Games
   const showGamesHtml = showGamesTemplate(sorted)
   $('.picks-card').append(showGamesHtml)
 }
