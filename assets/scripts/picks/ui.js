@@ -11,6 +11,7 @@ const onGetPicksSuccess = function (data) {
   }
   // HANDLEBARS for dynamically loading the Picks
   const showPicksHtml = showPicksTemplate(sorted)
+  $('.picks-table').remove()
   $('.user-picks-card').append(showPicksHtml)
 }
 

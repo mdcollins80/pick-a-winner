@@ -11,6 +11,7 @@ const onGetGamesSuccess = function (data) {
   }
   // HANDLEBARS for dynamically loading the Games
   const showGamesHtml = showGamesTemplate(sorted)
+  $('.games-table').remove()
   $('.picks-card').append(showGamesHtml)
 }
 
