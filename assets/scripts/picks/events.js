@@ -45,7 +45,6 @@ const onUpdatePick = function (event) {
 const onDeletePick = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(data)
 
   pickApi.deletePick(data)
     .then(pickUi.onDeletePickSuccess)

@@ -2,6 +2,7 @@
 
 // const store = require('../store')
 const showPicksTemplate = require('../templates/pick-listing.handlebars')
+const pickApi = require('./api')
 
 const onGetPicksSuccess = function (data) {
   console.log(data)
@@ -14,6 +15,7 @@ const onGetPicksSuccess = function (data) {
   const showPicksHtml = showPicksTemplate(sorted)
   $('.picks-table').remove()
   $('.user-picks-card').append(showPicksHtml)
+  $('#message').show().text('Successfully retrieved your picks!').fadeOut(5000)
 }
 
 const onGetPicksFailure = function () {
@@ -28,8 +30,12 @@ const onCreatePickFailure = function () {
   $('#message').show().text('Problem with pick submission.').fadeOut(5000)
 }
 
-const onUpdatePickSuccess = function () {
-  $('#message').show().text('Update success!').fadeOut(5000)
+const onUpdatePickSuccess = function (data) {
+  $('#message').show().text('Successfully updated pick.').fadeOut(5000)
+  console.log(data)
+  pickApi.getPicks()
+    .then(onGetPicksSuccess)
+    .catch(onGetPicksFailure)
 }
 
 const onUpdatePickFailure = function () {
@@ -38,6 +44,9 @@ const onUpdatePickFailure = function () {
 
 const onDeletePickSuccess = function () {
   $('#message').show().text('Delete success!').fadeOut(5000)
+  pickApi.getPicks()
+    .then(onGetPicksSuccess)
+    .catch(onGetPicksFailure)
 }
 
 const onDeletePickFailure = function () {
