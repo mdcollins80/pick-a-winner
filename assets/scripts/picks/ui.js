@@ -5,7 +5,6 @@ const showPicksTemplate = require('../templates/pick-listing.handlebars')
 const pickApi = require('./api')
 
 const onGetPicksSuccess = function (data) {
-  console.log(data)
   const sorted = {
     picks: data.picks.sort(function (a, b) {
       return a.game_id - b.game_id
@@ -32,7 +31,6 @@ const onCreatePickFailure = function () {
 
 const onUpdatePickSuccess = function (data) {
   $('#message').show().text('Successfully updated pick.').fadeOut(5000)
-  console.log(data)
   pickApi.getPicks()
     .then(onGetPicksSuccess)
     .catch(onGetPicksFailure)
