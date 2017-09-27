@@ -22,7 +22,6 @@ const getPick = function (data) {
 }
 
 const createPick = function (data) {
-  console.log(data)
   return $.ajax({
     url: config.apiOrigin + '/picks',
     method: 'POST',
@@ -33,8 +32,21 @@ const createPick = function (data) {
   })
 }
 
+const updatePick = function (data) {
+  console.log(data)
+  return $.ajax({
+    url: config.apiOrigin + '/picks/' + data.pick.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 module.exports = {
   getPicks,
   getPick,
-  createPick
+  createPick,
+  updatePick
 }

@@ -15,6 +15,7 @@ $(() => {
   $('.get-games').on('click', gameEvents.onGetGames)
   $('.picks-card').on('submit', pickEvents.onCreatePick)
   $('.get-picks').on('click', pickEvents.onGetPicks)
+  $('.user-picks-card').on('submit', pickEvents.onUpdatePick)
 })
 
 // use require with a reference to bundle the file and use it in this file

@@ -3,22 +3,28 @@
     <th>Game</th>
     <th>Away Team</th>
     <th>Home Team</th>
-    <th>Predicted Winner</th>
     <th>Actual Winner</th>
-    <th>Update Picks</th>
+    <th>Predicted Winner</th>
     <th>Delete Picks</th>
   </tr>
   {{#each picks as |pick|}}
-    <form>
-      <tr>
-        <td>{{pick.game.id}}</td>
-        <td>{{pick.game.away_team}}</td>
-        <td>{{pick.game.home_team}}</td>
-        <td><input value="{{pick.winning_team}}"></td>
-        <td>{{pick.game.winning_team}}</td>
-        <td><button type="submit" class="btn btn-default user-update-pick">Update</button></td>
-        <td><button type="submit" class="btn btn-default user-delete-pick">Delete</button></td>
-      </tr>
-    </form>
+    <tr>
+      <td>{{pick.game.id}}</td>
+      <td>{{pick.game.away_team}}</td>
+      <td>{{pick.game.home_team}}</td>
+      <td>{{pick.game.winning_team}}</td>
+      <td>
+        <form class="user-update-pick">
+          <input type="text" name="pick[winning_team]" value="{{pick.winning_team}}">
+          <input type="hidden" class="hidden-pick-id" name="pick[id]" value="{{pick.id}}">
+          <button type="submit" class="btn btn-warning">Update</button>
+        </form>
+      </td>
+      <td>
+        <form class="user-delete-pick">
+          <button type="submit" class="btn btn-danger" name="pick[id]" value="{{pick.id}}">Delete</button>
+        </form>
+      </td>
+    </tr>
   {{/each}}
 </tbody>

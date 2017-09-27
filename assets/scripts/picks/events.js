@@ -24,7 +24,19 @@ const onGetPicks = function (event) {
     .catch(pickUi.onGetPicksFailure)
 }
 
+const onUpdatePick = function (event) {
+  event.preventDefault()
+  if (event.target && event.target.matches('form.user-update-pick')) {
+    const data = getFormFields(event.target)
+
+    pickApi.updatePick(data)
+      .then(pickUi.onUpdatePickSuccess)
+      .catch(pickUi.onUpdatePickFailure)
+  }
+}
+
 module.exports = {
   onCreatePick,
-  onGetPicks
+  onGetPicks,
+  onUpdatePick
 }

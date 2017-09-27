@@ -19,9 +19,29 @@ const onGetPicksFailure = function () {
   $('#message').show().text('Problem loading picks.').fadeOut(5000)
 }
 
+const onCreatePickSuccess = function () {
+  $('#message').show().text('Pick submitted.').fadeOut(5000)
+}
+
+const onCreatePickFailure = function () {
+  $('#message').show().text('Problem with pick submission.').fadeOut(5000)
+}
+
+const onUpdatePickSuccess = function () {
+  $('#message').show().text('Update success!').fadeOut(5000)
+}
+
+const onUpdatePickFailure = function () {
+  $('#message').show().text('Update didn\'t to through!').fadeOut(5000)
+}
+
 module.exports = {
   onGetPicksSuccess,
-  onGetPicksFailure
+  onGetPicksFailure,
+  onCreatePickSuccess,
+  onCreatePickFailure,
+  onUpdatePickSuccess,
+  onUpdatePickFailure
 }
 
 // {"picks":[
