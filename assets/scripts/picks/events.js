@@ -10,10 +10,15 @@ const onCreatePick = function (event) {
   if (event.target && event.target.matches('form.pick')) {
     const data = getFormFields(event.target)
     data.pick.user_id = store.user.id.toString()
+    if (data.pick.winning_team.length > 0) {
+      $(event.target).children('button').remove()
 
-    pickApi.createPick(data)
-      .then(pickUi.onCreatePickSuccess)
-      .catch(pickUi.onCreatePickFailure)
+      pickApi.createPick(data)
+        .then(pickUi.onCreatePickSuccess)
+        .catch(pickUi.onCreatePickFailure)
+    } else {
+      $('#message').show().text('Fill in your predicted winning team!')// .fadeOut(5000)
+    }
   }
 }
 

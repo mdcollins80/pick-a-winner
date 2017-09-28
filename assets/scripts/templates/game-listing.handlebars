@@ -10,8 +10,9 @@
     <tr>
       <td>{{game.id}}</td>
       <td>{{game.week_num}}</td>
-      <td><button data-id={{game.away_team}} class="btn btn-default away-team">{{game.away_team}}</button></td>
-      <td><button data-id={{game.home_team}} class="btn btn-default home-team">{{game.home_team}}</button></td>
+      <!--<button data-id={game.away_team} class="btn btn-default away-team">{game.away_team}</button> used to go in the next td.  Use for next version in place of input and create button. -->
+      <td>{{game.away_team}}</td>
+      <td>{{game.home_team}}</td>
       <td >
         <form class="pick">
           <input type="text" placeholder="{{game.home_team}}" name="pick[winning_team]">

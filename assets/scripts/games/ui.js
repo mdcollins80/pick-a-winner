@@ -13,10 +13,11 @@ const onGetGamesSuccess = function (data) {
   const showGamesHtml = showGamesTemplate(sorted)
   $('.games-table').remove()
   $('.picks-card').append(showGamesHtml)
+  $('#message').show().text('Successfully loaded games.')// .fadeOut(5000)
 }
 
 const onGetGamesFailure = function () {
-  $('#message').show().text('Problem loading games.').fadeOut(5000)
+  $('#message').show().text('Problem loading games.')// .fadeOut(5000)
 }
 
 module.exports = {

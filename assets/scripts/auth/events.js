@@ -18,13 +18,13 @@ const onSignUp = function (event) {
           .then(userUi.onSignUpSuccess)
           .catch(userUi.onSignUpFailure)
       } else {
-        $('#message').show().text('Passwords don\'t match').fadeOut(5000)
+        $('#message').show().text('Passwords don\'t match')// .fadeOut(5000)
       }
     } else {
-      $('#message').show().text('Please enter a team_name').fadeOut(5000)
+      $('#message').show().text('Please enter a team_name')// .fadeOut(5000)
     }
   } else {
-    $('#message').show().text('Please enter an email').fadeOut(5000)
+    $('#message').show().text('Please enter an email')// .fadeOut(5000)
   }
 }
 
@@ -54,7 +54,7 @@ const onChangePassword = function (event) {
       .then(userUi.onChangePasswordSuccess)
       .catch(userUi.onChangePasswordFailure)
   } else {
-    $('#message').show().text('Passwords don\'t match!').fadeOut(5000)
+    $('#message').show().text('Passwords don\'t match!')// .fadeOut(5000)
   }
 }
 
