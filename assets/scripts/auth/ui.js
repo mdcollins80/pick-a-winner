@@ -25,23 +25,12 @@ const onSignInSuccess = function (data) {
   $('.sign-in-input').val('')
   $('.navbar-teamname').text('Pick a Winner - Team: ' + store.user.team_name.toString())
 }
-//
-//   // show all games played statistics
-//   gameApi.getGames()
-//     .then(gameUi.onGetGamesSuccess)
-//     .catch(gameUi.onGetGamesFailure)
-//   // show all finished games statistics
-//   gameApi.getFinishedGames()
-//     .then(gameUi.onGetFinishedGamesSuccess)
-//     .catch(gameUi.onGetFinishedGamesFailure)
-// }
-//
+
 const onSignInFailure = function () {
   $('#message').show().text('There was a problem with your sign in.  Try again?').fadeOut(5000)
 }
-//
+
 const onChangePasswordSuccess = function () {
-  // $('#user-change-pw').addClass('hidden')
   $('#message').show().text('Successfully updated your password').fadeOut(5000)
   $('#pwModal').modal('hide')
 }
@@ -56,6 +45,10 @@ const onSignOutSuccess = function () {
   $('#landing').removeClass('hidden')
   $('#sign-up-box').removeClass('hidden')
   $('#accordion').addClass('hidden')
+  $('#navbarResponsive').collapse('hide')
+  $('div[role="tabpanel"]').collapse('hide')
+  $('.picks-table').remove()
+  $('.games-table').remove()
 }
 
 const onSignOutFailure = function () {
