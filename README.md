@@ -1,61 +1,50 @@
-[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
+# Full Stack Project - Front End
 
-# browser-template
+## Links:
 
-A template for starting front-end projects. Webpack for `require` system, build
-pipeline, and development server. Boostrap and Handlebars.js included. No
-front-end frameworks included.
+[Pick-a-Winner Front End](https://mdcollins80.github.io/pick-a-winner/)
+[Pick-a-Winner Back End](https://pick-a-winner-nfl.herokuapp.com/)
 
-## Installation
+## Repositories:
 
-1.  [Download](../../archive/master.zip) this template.
-1.  Unzip and rename the template directory.
-1.  Empty [`README.md`](README.md) and fill with your own content.
-1.  Replace all instances of `ga-wdi-boston.browser-template` with the name of your project.
-1.  Move into the new project and `git init`
-1.  Add all of the files in your project with the command `git add -A`
-  -   *Note:* THIS IS THE ONLY TIME YOU SHOULD RUN THIS COMMAND
-1.  Commit all of your files with the command `git commit`
-  -   Your commit title should read `Initial commit`
-1.  Install dependencies with `npm install`.
+This is the repo for the front end of the Pick-a-Winner football picks league, supported by a Rails [back end API](https://github.com/mdcollins80/pick-a-winner-api).
 
-## Structure
+## What it does:
 
-Developers should store JavaScript files in [`assets/scripts`](assets/scripts).
-The "manifest" or entry-point is
-[`assets/scripts/index.js`](assets/scripts/index.js). In general, only
-application initialization goes in this file. It's normal for developers to
-start putting all code in this file, but encourage them to break out different
-responsibilities and use the `require` syntax put references where they're
-needed.
+As a user, you can sign-up and sign-in to the application.  From there you are able to choose your predicted winner between two NFL teams for all 256 games of the NFL season.  On creation, your picks are stored in a database by the back-end Rails API.  You can retrieve those picks, update them, and delete them as you please.
 
-Developers should set `config.apiOrigins.production` (and
-`config.apiOrigins.development` if it differs from the default).  With
-`apiOrigins` set, developers may rely on `config.apiOrigin` as the base for API
-URLs.
+## What it's built with:
 
-Developers should store styles in [`assets/styles`](assets/styles) and load them
-from [`assets/styles/index.scss`](assets/styles/index.scss).
+The front end portion of this project was completed using:
+- HTML
+- CSS
+- SASS
+- Bootstrap
+- JavaScript
+- jQuery
+- Handlebars
+- AJAX
 
-Developers should use [getFormFields](forms.md) to retrieve form data to send to
-an API.
+## Planning:
 
-To deploy a browser-template based SPA, run `grunt deploy`.
+Wireframes and User Stories: [Imgur](https://i.imgur.com/2LzMuOa.jpg)
 
-## Tasks
+## Yet to Tackle:
 
-Developers should run these often!
+There are a number of improvements and additions I have in mind for this project.
 
--   `grunt nag` or just `grunt`: runs code quality analysis tools on your code
-    and complains
--   `grunt make-standard`: reformats all your code in the JavaScript Standard Style
--   `grunt <server|serve|s>`: generates bundles, watches, and livereloads
--   `grunt test`: runs any automated tests, depends on `grunt build`
--   `grunt build`: place bundled styles and scripts where `index.html` can find
-    them
+- Integrate a 3rd party API to update the Games' winning-team upon completion of the games.
+- Add a standings section to display users' statistics, including a weekly correct pick count
+- Validation to prevent users from submitting or editing picks after kickoff.
+- Validation to prevent users from submitting multiple picks for the same game.
+- Ability to see other user's picks after kickoff.
+- Streamline the user experience by removing the input fields and substituting them with home and away team buttons to submit picks.
+- Pick submission reminders/notifications as game time approaches.
 
-## [License](LICENSE)
+## Project Story:
 
-1.  All content is licensed under a CC­BY­NC­SA 4.0 license.
-1.  All software code is licensed under GNU GPLv3. For commercial use or
-    alternative licensing, please contact legal@ga.co.
+I picked this project because it is something I've managed for the past few years using Google Forms and Sheets.  I thought it would be fun and potentially useful for the future to convert that league over to a web app that users could use with more functionality and ease.
+
+I initially spent too much time on an overly complex model.  I felt compelled to pour a lot of time in to the back end when, in fact, through the magic of Rails, I could have had that set up in a matter of minutes.  I scrambled for the past few days, then, to get the front end CRUD functionality up and running.  Despite scrambling, however, I methodically traversed the various parts of each CRUD route to ensure the app functions as expected.
+
+I was able to get some semblence of my initial plan in place and am happy with this Version 1 functionality, but look forward to the opportunity to improve upon this product!
