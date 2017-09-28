@@ -17,12 +17,13 @@ const onSignUpFailure = function () {
 
 const onSignInSuccess = function (data) {
   store.user = data.user
+  console.log(store.user.team_name)
   $('#message').show().text('Successful Sign-In!').fadeOut(5000)
-  console.log(data)
   $('nav').removeClass('hidden')
   $('#landing').addClass('hidden')
   $('#accordion').removeClass('hidden')
   $('.sign-in-input').val('')
+  $('.navbar-teamname').text('Pick a Winner - Team: ' + store.user.team_name.toString())
 }
 //
 //   // show all games played statistics

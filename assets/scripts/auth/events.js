@@ -31,9 +31,6 @@ const onSignUp = function (event) {
 const onSignIn = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
-  console.log(data)
-  console.log(this)
-  console.log(event)
   userApi.signIn(data)
     .then(userUi.onSignInSuccess)
     .catch(userUi.onSignInFailure)
@@ -49,9 +46,7 @@ const onSignIn = function (event) {
 //
 const onChangePassword = function (event) {
   event.preventDefault()
-  console.log(event)
   const data = getFormFields(this)
-  console.log(data)
   const passwords = data.passwords
 
   if (passwords.new === passwords.confirm) {

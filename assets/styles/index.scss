@@ -1,6 +1,11 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+body {
+  background: url('./images/football-field-stripes.jpg');
+  background-color: #DDD;
+}
+
 .box {
   border: 1px solid #000;
 }
