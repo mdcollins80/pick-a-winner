@@ -2,14 +2,40 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
 body {
-  background: url('./images/football-field-stripes.jpg');
-  background-color: #DDD;
+  background-image: url('http://www.okiespavement.com/wp-content/uploads/2015/05/football-field-stripes.jpg');
 }
 
 .box {
-  border: 1px solid #000;
+  border: 1px solid #777;
 }
 
 .message-bar {
+  background-color: rgba(255, 255, 255, .75);
+  border: 1px solid #777;
   height: 20px;
+}
+
+h1.display-3 {
+  background-color: rgba(255, 255, 255, .75);
+  border: 1px solid #777;
+}
+
+form.credentials {
+  background-color: rgba(255, 255, 255, .75);
+  border: 1px solid #777;
+}
+
+.landing {
+  padding: 5px;
+}
+
+a.navbar-brand {
+  font-size: 3rem;
+  font-weight: 300;
+  line-height: 1.1;
+}
+
+#mainNav {
+  background-color: rgba(255, 255, 255, .75);
+  border: 1px solid #777;
 }
